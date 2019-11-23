@@ -1,0 +1,54 @@
+:host{
+  ion-content {
+    --background: var(--ion-color-primary)
+  }
+  .button{
+    margin: 0 auto;
+    height: 145px;
+    width:170px;
+    margin-top:10px;
+    
+  }
+  .button2{
+    margin: 0 auto;
+    height: 250px;
+    width:250px;
+    margin-top:10px;
+    
+  }
+  .null{
+    margin: 0 auto;
+    height: 11px;
+    width:11px;
+    margin-top:10px;
+    
+  }
+  ion-icon{
+    height: 55px;
+    width:55px;
+  }
+  label{
+    font-size: 11px;;
+  }
+  .Lab{
+    font-size: 15px;
+    margin: 0 auto;
+
+  }
+  .Lab2{
+    font-size: 35px;
+    margin: 0 auto;
+
+  }
+  .Lab3{
+    font-size: 20px;
+    color: white;
+  }
+  .newicon{
+    margin: 0 auto;
+    color: white;
+  }
+  .marginTop{
+    margin-top: 10px;
+  }
+}

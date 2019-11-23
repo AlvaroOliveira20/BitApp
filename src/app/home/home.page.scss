@@ -1,1 +1,29 @@
 
+:host{
+    ion-content {
+    --background: var(--ion-color-primary)
+    }
+    .logo{
+        margin: 0 auto;
+        width:310px;
+        height: 160px;
+        
+    }
+    .margin{
+        margin-top: 30px;
+    }
+    .margin2{
+        margin-top: 20px;
+    }
+    .margin3{
+        margin-top: 45px;
+    }
+
+    .button{
+        margin: 0 auto;
+        height: 50px;
+        width:155px;
+        margin-top:10px;
+        
+    }
+}

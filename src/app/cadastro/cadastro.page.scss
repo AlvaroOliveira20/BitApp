@@ -1,0 +1,47 @@
+:host{
+    ion-content {
+    --background: var(--ion-color-primary)
+    }
+    .margin-top2{
+        margin-top: 15px;
+    }
+    ion-item{
+        margin: 0 auto;
+        width:240px;
+        height: 35px;
+        --background: var(--ion-color-primary-contrast);
+
+        ion-input{
+            color: #fff;
+            margin-top: -10px;
+        }
+    }
+    .check{
+        margin: 0 auto;
+        color: #fff;
+        --background: var(--ion-color-primary);
+        width:240px;
+    }
+    .label1{
+        margin-left: 5px;
+        margin-top: 10px;
+        color: #fff;
+        font-size: 10px;
+    }
+    .label2{
+        margin-left: 5px;
+        margin-top: 10px;
+        color: rgb(255, 0, 0);
+        font-size: 10px;
+    }
+    .input1{
+        margin-top: 5px;
+    }
+    .button{
+        margin: 0 auto;
+        height: 40px;
+        width:145px;
+        margin-top:10px;
+        
+    }
+}

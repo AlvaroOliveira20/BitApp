@@ -1,5 +1,7 @@
 {
   "name": "BitApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

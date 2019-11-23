@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+        <ion-icon class = "ion-back-button" icon="arrow-back" size = "large" (click) = navByUrl()></ion-icon>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="margin-top2" lines="none">
+      <ion-input [(ngModel)]="user.cpf" type="tel" placeholder="CPF" [brmasker]="{mask:'000.000.000-00', len:14} "></ion-input>
+  </ion-item>
+  <ion-item class="margin-top" lines="none">
+    <ion-input type="password" placeholder="Senha" [(ngModel)] = "user.password"></ion-input>
+  </ion-item>
+  <div style="display: flex; justify-content: center;">
+  <input class = "input1" type="checkbox">
+    <label class="label1">Lembrar CPF</label>
+  </div>
+
+  <div class="margin2">
+    <ion-button class="button" routerDirection="forward" color="secondary" (click) = "login()" expand = "block" >CONTINUAR</ion-button>
+  </div> 
+</ion-content>
+
+
+
+
+
+
