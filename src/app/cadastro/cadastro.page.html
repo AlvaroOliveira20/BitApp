@@ -8,28 +8,33 @@
 </ion-header>
 
 <ion-content>
-  <ion-item class="margin-top2" lines="none">
-    <ion-input type="text" placeholder="Nome completo" [(ngModel)] = "user.name" ></ion-input>
-  </ion-item>
+<form [formGroup]="formulario"> 
+    <ion-item class="margin-top2" lines="none">
+      <ion-input type="text" placeholder="Nome completo" formControlName="name" ></ion-input>
+    </ion-item>
 
-  <ion-item class="margin-top2" lines="none">
-      <ion-input [(ngModel)]="user.cpf" type="tel" placeholder="CPF" [brmasker]="{mask:'000.000.000-00', len:14} "></ion-input>
-  </ion-item>
+    <ion-item class="margin-top2" lines="none">
+        <ion-input formControlName="cpf" type="tel" placeholder="CPF" [brmasker]="{mask:'000.000.000-00', len:14} "></ion-input>
+    </ion-item>
 
-  <ion-item class="margin-top2" lines="none">
-    <ion-input type="email" placeholder="E-mail" [(ngModel)] = "user.email" ></ion-input>
-  </ion-item>
-  <ion-item class="margin-top2" lines="none">
-    <ion-input type="password" placeholder="Senha" [(ngModel)] = "user.password"></ion-input>
-  </ion-item>
+    <ion-item class="margin-top2" lines="none">
+      <ion-input type="email" placeholder="E-mail" formControlName="email" ></ion-input>
+    </ion-item>
+
+    <ion-item class="margin-top2" lines="none">
+      <ion-input type="password" placeholder="Senha" formControlName="password"></ion-input>
+    </ion-item>
+</form>
+
   <div class="margin" style="display: flex; justify-content: center;">
- 
-    <ion-checkbox class = "input1" [(ngModel)]="check"></ion-checkbox>
+    <form [formGroup]="formulario2"> 
+      <ion-checkbox class = "input1" formControlName="checkbox" checked="false"></ion-checkbox>
+    </form>
     <label class="label1">Concordo com os termos de uso e a </label><label class="label2" (click) = navToTermos()>politica de privacidade</label>
   </div>
 
   <div class="margin2">
-    <ion-button [disabled]="!check"  class="button" routerDirection="forward" color="secondary" expand = "block" (click) = "register()" >CONTINUAR</ion-button>
+    <ion-button  [disabled]="formulario2.invalid" class="button" routerDirection="forward" color="secondary" expand = "block" (click) = "teste()" >CONTINUAR</ion-button>
   </div>
 
   

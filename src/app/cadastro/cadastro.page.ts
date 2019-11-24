@@ -9,7 +9,7 @@ import { User } from './../interfaces/user';
 import { AuthService } from './../services/auth.service';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { AngularFireAuth } from "@angular/fire/auth";
-
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -18,72 +18,78 @@ import { AngularFireAuth } from "@angular/fire/auth";
   styleUrls: ['./cadastro.page.scss'],
 })
 export class CadastroPage implements OnInit {
-  public userRegister: Data = {};
+  msg = "";
+  formulario: FormGroup;
+  msg2 = "";
+  formulario2: FormGroup;
+
   public loading: any;
-  public user: any = {};
-  public var: any = {};
+  public check: any = {
+    box: null
+  };
+
 
   constructor(private afs: AngularFirestore,
     private afa: AngularFireAuth,
     public router: Router,
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
-    private authService: AuthService) {  }
+    private authService: AuthService,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.formulario = this.formBuilder.group({
+      cpf: ['', [Validators.required, , Validators.maxLength(14)]],
+      name: ['', [Validators.required, Validators.maxLength(100)]],
+      email: ['', [Validators.required, Validators.maxLength(30)]],
+      password: ['', [Validators.required, Validators.maxLength(15)]],
+     });
+     this.formulario2 = this.formBuilder.group({
+      checkbox: ['', Validators.requiredTrue]
+     });
+
   }
-  navByUrl(){
+  navByUrl() {
     this.router.navigateByUrl('/home');
   }
+async teste(){
+  this.formulario.get('cpf').valid ? console.log("cpf ok") : this.presentToast('CPF não digitado!')
+  this.formulario.get('name').valid ? console.log("name ok") : this.presentToast('Nome não digitado!')
+  this.formulario.get('password').valid ? console.log("password ok") : this.presentToast('Senha não digitada!')
+  this.formulario.get('email').valid ? console.log("email ok") : this.presentToast('E-mail não digitado!')
+  
 
-  async register() {
+  
+
+
+  if (this.formulario.valid) {
+    
+    let email = this.formulario.get('email').value;
+    let password = this.formulario.get('password').value;
+    let dados = this.formulario.value;
+
+    console.log("ok")
     await this.presentLoading();
-    try{
-      if (this.user.name == null){
-        this.presentToast('Erro, Campo "Nome completo" não pode ser nulo!')
-        this.user.cpf = null;
-        this.user.name = null;
+      try {
+        const newUser = await this.afa.auth.createUserWithEmailAndPassword(email, password)
 
-      }else if (this.user.cpf == null){
-        this.presentToast('Erro, Campo "CPF" não pode ser nulo!')
-        this.user.cpf = null;
-        this.user.name = null;
-        
-      }else if (this.user.name != null && this.user.cpf != null){
-        const newUser = await this.afa.auth.createUserWithEmailAndPassword(this.user.email, this.user.password)
-      
-        await this.afs.collection('Users').doc(newUser.user.uid).set(this.user);
+        await this.afs.collection('Users').doc(newUser.user.uid).set(dados);
 
         this.presentToast('Cadastrado com sucesso!')
+
+      } catch (error) {
+        console.error(error);
+        this.presentToast(error.message);
+      } finally {
+        this.loading.dismiss();
       }
-      
-    } catch(error) {
-      console.error(error);
-      if (error.message == 'createUserWithEmailAndPassword failed: First argument "email" must be a valid string.') {
-        error.message = 'Erro, email não digitado!';
-      } else if (error.message == 'createUserWithEmailAndPassword failed: Second argument "password" must be a valid string.') {
-        error.message = 'Erro, senha não digitada!';
-      } else if (error.message == 'There is no user record corresponding to this identifier. The user may have been deleted.') {
-        error.message = 'Erro, cadastro não encontrado!';
-      } else if (error.message == 'The email address is badly formatted.') {
-        error.message = 'Erro, email não foi digitado corretamente, verifique e tente novamente!';
-      } else if (error.message == 'The password is invalid or the user does not have a password.') {
-        error.message = 'CPF ou senha incorretos!';
-      } else if (error.message == 'A network error (such as timeout, interrupted connection or unreachable host) has occurred.') {
-        error.message = 'Erro, não foi estabelecer uma conexão com a rede, verifique sua conexão e tente novamente!';
-      }if (error.message != 'createUserWithEmailAndPassword failed: First argument "email" must be a valid string.' && error.message != 'createUserWithEmailAndPassword failed: Second argument "password" must be a valid string.' && error.message != 'There is no user record corresponding to this identifier. The user may have been deleted.' && error.message != 'The email address is badly formatted.' && error.message != 'A network error (such as timeout, interrupted connection or unreachable host) has occurred.') {
-        error.message = 'Erro desconhecido, consulte o log de erros!';
-      }
-      this.presentToast(error.message);
-    }finally{
-      this.loading.dismiss();
     }
   }
 
-  
-  
 
-  
+
+
+
 
   async presentLoading() {
     this.loading = await this.loadingCtrl.create({
@@ -91,10 +97,10 @@ export class CadastroPage implements OnInit {
       message: '<ion-img src="/assets/CesmacLoad.gif"></ion-img>',
       cssClass: 'CustomLoad',
     });
-      
+
     return this.loading.present();
   }
-  
+
   async presentToast(message: string) {
     const toast = await this.toastCtrl.create({
       message,
@@ -103,9 +109,8 @@ export class CadastroPage implements OnInit {
     toast.present();
   }
 
-  navToTermos(){
+  navToTermos() {
     this.router.navigateByUrl("/termos")
   }
-  
+
 }
- 
