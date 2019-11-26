@@ -2,7 +2,7 @@ import { AuthService } from './../services/auth.service';
 import { User } from './../interfaces/user';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { LoadingController, ToastController, NavController } from '@ionic/angular';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { AngularFireAuth } from "@angular/fire/auth";
 @Component({
@@ -16,9 +16,10 @@ export class LoginPage implements OnInit {
   public loading: any;
   public user: any = {cpf: '', password: ''};
 
+
   
   constructor(private afs: AngularFirestore,
-    private afa: AngularFireAuth,public router: Router, private loadingCtrl: LoadingController, private toastCtrl: ToastController, private authService: AuthService) { }
+    private navCtrl: NavController, private afa: AngularFireAuth,public router: Router, private loadingCtrl: LoadingController, private toastCtrl: ToastController, private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -35,6 +36,7 @@ async login() {
     const snapshopt = await this.afs.collection('Users', ref => ref.where('cpf', '==', this.user.cpf)).get().toPromise();
     
     let usuario = (snapshopt.empty ? null : snapshopt.docs[0].data());
+      
     console.log(usuario);
     console.log(this.user);
     if (usuario != null) {
@@ -42,6 +44,7 @@ async login() {
       if (usuarioLogado != null) {
         this.presentToast('logado com sucesso!')
       }
+      
     }else{
       this.presentToast('CPF ou senha incorretos!')
     }

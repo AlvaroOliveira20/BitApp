@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NgModule } from '@angular/core';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { LoadingController, ToastController, NavController } from '@ionic/angular';
 import { User } from './../interfaces/user';
 import { AuthService } from './../services/auth.service';
 import { AngularFirestore } from "@angular/fire/firestore";
@@ -35,7 +35,9 @@ export class CadastroPage implements OnInit {
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
     private authService: AuthService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private navCtrl: NavController) { }
+    
 
   ngOnInit() {
     this.formulario = this.formBuilder.group({
@@ -45,7 +47,8 @@ export class CadastroPage implements OnInit {
       password: ['', [Validators.required, Validators.maxLength(15)]],
      });
      this.formulario2 = this.formBuilder.group({
-      checkbox: ['', Validators.requiredTrue]
+      checkbox: [false, Validators.requiredTrue],
+      checkbox2: [false, Validators.requiredTrue]
      });
 
   }
@@ -74,6 +77,9 @@ async teste(){
         const newUser = await this.afa.auth.createUserWithEmailAndPassword(email, password)
 
         await this.afs.collection('Users').doc(newUser.user.uid).set(dados);
+
+        
+        this.router.navigateByUrl("/menu-principal");
 
         this.presentToast('Cadastrado com sucesso!')
 

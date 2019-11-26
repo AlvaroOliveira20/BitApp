@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   constructor() {}
+  sair(){
+    navigator['app'].exitApp()
+  }
 
 }

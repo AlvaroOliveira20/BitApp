@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Opa! Complete o cadastro!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-button class = "marginTop" routerDirection="forward" color="secondary" (click) = "logout()" expand = "block" >SAIR</ion-button>
+  <form [formGroup]="formulario3"> 
+  <ion-item class="marginTop" lines="none">
+      <ion-input formControlName="Data_Vencimento" type="tel" placeholder="Data de vencimento" [brmasker]="{mask:'00', len:2}"></ion-input>
+  </ion-item>
+  <ion-item class="marginTop" lines="none">
+    <ion-input formControlName="Senha_Cartao" type="number" placeholder="Senha do seu cartão" [brmasker]="{mask:'0000', len:4}"></ion-input>
+  </ion-item>
+  <ion-item class="marginTop" lines="none">
+    <ion-input formControlName="Cep" type="tel" placeholder="CEP" [brmasker]="{mask:'00000-000', len:9}"></ion-input>
+    <ion-input formControlName="Rua" type="text" placeholder="Rua"></ion-input>
+  </ion-item>
+  <ion-item class="marginTop" lines="none">
+    <ion-input formControlName="Complemento" type="text" placeholder="Complemento"></ion-input>
+    <ion-input formControlName="Numero"type="text" placeholder="Nº"></ion-input>
+  </ion-item>
+  <ion-item class="marginTop" lines="none">
+    <ion-input formControlName="Bairro" type="text" placeholder="Bairro"></ion-input>
+    <ion-input formControlName="Cidade" type="text" placeholder="Cidade"></ion-input>
+    <ion-input formControlName="Estado" type="text" placeholder="Estado" [brmasker]="{mask:'00', len:2}"></ion-input>
+  </ion-item>
+  <ion-item class="marginTop" lines="none">
+    <ion-input formControlName="Nacionalidade" type="text" placeholder="Nacionalidade"></ion-input>
+    <ion-input formControlName="Data_Nascimento" type="tel" placeholder="Data de nascimento" [brmasker]="{mask:'00/00/0000', len:10}"></ion-input>
+  </ion-item>
+  <ion-item class="marginTop" lines="none">
+    
+      <ion-input formControlName="Estado_Civil" type="text" placeholder="Estado cívil"></ion-input>
+
+      <ion-input formControlName="Telefone" type="tel" placeholder="Telefone" [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input>
+
+  </ion-item>
+  <ion-item class="marginTop" lines="none">
+    
+      <ion-input formControlName="Registro_Geral" type="number" placeholder="Registro Geral"></ion-input>
+
+  </ion-item>
+  <ion-item class="marginTop" lines="none">
+    
+      <ion-input formControlName="Orgao_Expedidor" type="text" placeholder="Órgão expedidor"></ion-input>
+
+      <ion-input formControlName="Estado_De_Emissao" type="text" placeholder="Estado de emissão" [brmasker]="{mask:'00', len:2}"></ion-input>
+
+  </ion-item>
+  <ion-item class="marginTop" lines="none">
+    
+      <ion-input formControlName="Rendimento_Mensal" type="number" placeholder="Rendimento mensal"></ion-input>
+
+  </ion-item >
+ 
+  <div class = "marginTop">
+    <div style="display: flex; justify-content: center;">
+      <ion-label color = "light">Selecione o seu limite:</ion-label>
+    </div>
+    <ion-range formControlName="Limite" snaps="true" step="100" min = "100" max = "1000" color="light" pin="true"></ion-range>
+  </div>  
+  </form>
+  
+ <div class="margin2">
+    <ion-button class="button" routerDirection="forward" color="secondary" expand = "block" (click) = "go()" >CONTINUAR</ion-button>
+  </div>
+</ion-content>

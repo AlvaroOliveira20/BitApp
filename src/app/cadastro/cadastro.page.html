@@ -28,13 +28,14 @@
 
   <div class="margin" style="display: flex; justify-content: center;">
     <form [formGroup]="formulario2"> 
-      <ion-checkbox class = "input1" formControlName="checkbox" checked="false"></ion-checkbox>
+      <ion-checkbox class = "input1" #campo1  formControlName="checkbox" ></ion-checkbox>
     </form>
-    <label class="label1">Concordo com os termos de uso e a </label><label class="label2" (click) = navToTermos()>politica de privacidade</label>
+    <label class="label1">Concordo com os termos de uso e a </label>
+    <label class="label2" (click) = "navToTermos()">politica de privacidade</label>
   </div>
 
   <div class="margin2">
-    <ion-button  [disabled]="formulario2.invalid" class="button" routerDirection="forward" color="secondary" expand = "block" (click) = "teste()" >CONTINUAR</ion-button>
+    <ion-button  [disabled]="!campo1.checked" class="button" routerDirection="forward" color="secondary" expand = "block" (click) = "teste()" >CONTINUAR</ion-button>
   </div>
 
   

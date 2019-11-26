@@ -1,0 +1,33 @@
+:host{
+    ion-content {
+    --background: var(--ion-color-primary)
+    }
+    .marginTop{
+        margin-top: 5px;
+    }
+    
+    ion-item{
+        margin: 0 auto;
+        width:240px;
+        height: 35px;
+        --background: var(--ion-color-primary-contrast);
+        
+
+        ion-input{
+            color: #fff;
+            margin-top: -10px;
+            
+        }
+    }
+    
+    ion-label{
+        margin: 0 auto;
+    }
+    ion-range{
+        margin: 0 auto;
+        width:240px;
+        height: 35px;
+        color: #000;
+    }
+
+}
