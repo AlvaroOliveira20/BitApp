@@ -7,7 +7,7 @@
         <ion-icon class="newicon" name="md-person" ></ion-icon>
       </div>
       <br>
-      <label class = "Lab3">Olá %DISPLAY_NAME%!</label>
+      <label class = "Lab3">Olá {{nome}}!</label>
     </div>
   </div>
   <div style="display: flex; justify-content: center;">
@@ -17,7 +17,7 @@
         <br>
         <label class = "Lab2">R$0.00</label>
         <br>
-        <label class = "Lab">Limite disponível: R$0.00</label>
+        <label class = "Lab">Limite disponível: R${{limite}},00</label>
       </div>
     </ion-button>
   </div>
@@ -101,4 +101,5 @@
       </div>
     </ion-button>
   </div>
+  <img class="marginTop" src="assets/cardBlack.png">
 </ion-content>

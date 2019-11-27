@@ -24,8 +24,9 @@ export class CadastroPage implements OnInit {
   formulario2: FormGroup;
 
   public loading: any;
-  public check: any = {
-    box: null
+  
+  public id: any = {
+    uid: ''
   };
 
 
@@ -40,16 +41,20 @@ export class CadastroPage implements OnInit {
     
 
   ngOnInit() {
+    
+    
     this.formulario = this.formBuilder.group({
       cpf: ['', [Validators.required, , Validators.maxLength(14)]],
       name: ['', [Validators.required, Validators.maxLength(100)]],
       email: ['', [Validators.required, Validators.maxLength(30)]],
       password: ['', [Validators.required, Validators.maxLength(15)]],
      });
+
      this.formulario2 = this.formBuilder.group({
-      checkbox: [false, Validators.requiredTrue],
-      checkbox2: [false, Validators.requiredTrue]
+      check: ['', [Validators.required]]
+      
      });
+     
 
   }
   navByUrl() {
@@ -70,13 +75,16 @@ async teste(){
     let email = this.formulario.get('email').value;
     let password = this.formulario.get('password').value;
     let dados = this.formulario.value;
+    let dados2 = this.formulario2.value;
 
-    console.log("ok")
+    console.log("ok");
     await this.presentLoading();
       try {
         const newUser = await this.afa.auth.createUserWithEmailAndPassword(email, password)
-
+        this.id.uid = newUser.user.uid;
         await this.afs.collection('Users').doc(newUser.user.uid).set(dados);
+        await this.afs.collection('Users').doc(newUser.user.uid).update(this.id);
+        
 
         
         this.router.navigateByUrl("/menu-principal");

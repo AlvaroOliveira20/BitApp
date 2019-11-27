@@ -1,7 +1,9 @@
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, OnInit } from '@angular/core';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AuthService } from './../services/auth.service';
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @Component({
   selector: 'app-menu-principal',
@@ -9,9 +11,17 @@ import { AuthService } from './../services/auth.service';
   styleUrls: ['./menu-principal.page.scss'],
 })
 export class MenuPrincipalPage implements OnInit {
-  constructor(public router: Router, private loadingCtrl: LoadingController, private toastCtrl: ToastController, private authService: AuthService) { }
+  public nome: any;
+  public limite: any;
+  constructor(private afs: AngularFirestore, private afa: AngularFireAuth, public router: Router, private loadingCtrl: LoadingController, private toastCtrl: ToastController, private authService: AuthService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const newUser = this.afa.auth.currentUser;
+    const snapshopt = await this.afs.collection('Users', ref => ref.where('uid', '==', newUser.uid)).get().toPromise();
+    let user = snapshopt.docs[0].data();
+    console.log(user)
+    this.nome = user.name;
+    this.limite = user.Limite;
   }
 
   logout(){
