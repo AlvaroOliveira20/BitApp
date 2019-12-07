@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+        <ion-icon class = "ion-back-button" icon="arrow-back" (click) = navByUrl()></ion-icon>
+    </ion-buttons>
+    <ion-title>Transferir</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="marginTop" style="display: flex; justify-content: center;">
+    <form [formGroup]="formulario6"> 
+    <ion-input type = "number" class = 'ion-input' formControlName = "Valor" placeholder = "Valor"></ion-input>
+  </form>
+  </div>
+  <div class="marginTop" style="display: flex; justify-content: center;">
+  <form [formGroup]="formulario7"> 
+  <ion-input type = "number" class = 'ion-input' formControlName = "Conta" placeholder = "Numero da conta"></ion-input>
+  <div style="display: flex; justify-content: center;">
+    <ion-button (click) = 'go()'>Transferir</ion-button>
+  </div>
+  </form>
+  </div>
+  
+</ion-content>

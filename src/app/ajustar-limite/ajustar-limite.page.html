@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Ajuste o seu limite</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+    <div class = 'marginTop' style="display: flex; justify-content: center;">
+      <ion-label color = "dark">Selecione o seu limite:</ion-label>
+    </div>
+    <form [formGroup]="formulario4"> 
+    <ion-range formControlName="Limite" snaps="true" step="100" min = "100" max = "1000" color="danger" pin="true"></ion-range>
+   </form>
+  
+ <div class="margin2">
+    <ion-button class="button" (click)= 'go()' routerDirection="forward" color="secondary" expand = "block">CONTINUAR</ion-button>
+  </div>
+ 
+
+
+</ion-content>

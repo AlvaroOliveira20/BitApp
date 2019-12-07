@@ -1,6 +1,6 @@
 :host{
     ion-content {
-    --background: var(--ion-color-primary)
+        --background: #339999 url('../../assets/background.png') no-repeat center center / cover !important;
     }
     .margin-top2{
         margin-top: 150px;
@@ -20,6 +20,8 @@
         }
     }
     .button{
+        --background: #339999 url('../../assets/button.png') no-repeat center center / cover !important;
+        color: #fff;
         margin: 0 auto;
         height: 40px;
         width:145px;
@@ -33,5 +35,9 @@
     }
     .input1{
         margin-top: 3px;
+    }
+    ion-icon{
+        color: #fff;
+        margin: 0 auto
     }
 }

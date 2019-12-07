@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+        <ion-icon class = "ion-back-button" icon="arrow-back" (click) = navByUrl()></ion-icon>
+    </ion-buttons>
+    <ion-title>Cobrar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class = 'input'>
+    <form [formGroup]="formulario5"> 
+    <ion-input class = 'ion-input' formControlName = "Valor" placeholder = "Valor"></ion-input>
+  </form>
+  </ion-item>
+  <div style="display: flex; justify-content: center;">
+    <ion-button (click) = 'encodedText()'>Exibir Code</ion-button>
+  </div>
+</ion-content>

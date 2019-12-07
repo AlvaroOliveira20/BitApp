@@ -8,6 +8,9 @@
 </ion-header>
 
 <ion-content>
+  <div class="margin" style="display: flex; justify-content: center;">
+<ion-icon size = "large" class= "ajuda" name="md-help" ></ion-icon>
+</div>
   <ion-item class="margin-top2" lines="none">
       <ion-input [(ngModel)]="user.cpf" type="tel" placeholder="CPF" [brmasker]="{mask:'000.000.000-00', len:14} "></ion-input>
   </ion-item>
@@ -20,7 +23,7 @@
   </div>
 
   <div class="margin2">
-    <ion-button class="button" routerDirection="forward" color="secondary" (click) = "login()" expand = "block" >CONTINUAR</ion-button>
+    <ion-button class="button" routerDirection="forward" (click) = "login()" expand = "block" >CONTINUAR</ion-button>
   </div> 
 </ion-content>
 

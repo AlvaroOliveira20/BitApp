@@ -1,14 +1,16 @@
 ion-content {
-    --background: var(--ion-color-primary)
-    }
-
+    --background: #339999 url('../../assets/background.png') no-repeat center center / cover !important;
+}
 ion-text{
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: justify;
     width: 270px;
     margin-top: 10px;
     font-size: 1px
 }
 .content{
-    padding: 0 20px;
+    padding: 0 30px;
+}
+ion-item{
+    opacity: 70%;
 }

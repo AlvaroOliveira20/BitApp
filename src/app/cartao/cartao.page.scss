@@ -1,6 +1,6 @@
 :host{
     ion-content {
-    --background: var(--ion-color-primary)
+        --background: #339999 url('../../assets/background.png') no-repeat center center / cover !important;
     }
     .marginTop{
         margin-top: 5px;
@@ -8,9 +8,10 @@
     
     ion-item{
         margin: 0 auto;
-        width:240px;
+        width:300px;
         height: 35px;
-        --background: var(--ion-color-primary-contrast);
+        --background: #339999
+        
         
 
         ion-input{
@@ -18,6 +19,9 @@
             margin-top: -10px;
             
         }
+    }
+    ion-input{
+        color: #fff
     }
     
     ion-label{
@@ -28,6 +32,14 @@
         width:240px;
         height: 35px;
         color: #000;
+    }
+    .classe{
+        --background: #287878;
+        margin-left: 5px;
+    }
+    .button {
+        --background: #339999 url('../../assets/button.png') no-repeat center center / cover !important;
+        color: #fff;
     }
 
 }

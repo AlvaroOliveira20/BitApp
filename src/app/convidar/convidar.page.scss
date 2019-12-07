@@ -1,0 +1,87 @@
+:host{
+    ion-content {
+      --background: #339999 url('../../assets/background.png') no-repeat center center / cover !important;
+  }
+      .ion-back-button{
+          height: 40px;
+      }
+      .QR{
+          margin: 0 auto;
+      }
+      .ion-input{
+          --background: #287878;
+          height: 40px;
+        width: 250px;
+        margin:0 auto;
+        margin-top: 10px;
+        color: #fff;
+      }
+      .button{
+        margin: 0 auto;
+        height: 30px;
+        width: 100px;
+        margin-top:10px;
+        color: #fff;
+        
+      }
+      .input{
+          --background: #339999;
+          color: #fff;
+          width: 150px;
+          margin: 0 auto;
+      }
+      .button2{
+        text-align: left;
+        display: flex;
+        justify-content: flex-start;
+        margin: 0 auto;
+        height: 200px;
+        width: 300px;
+        margin-top:10px;
+        
+      }
+      .Logout{
+        margin: 0 auto;
+        height: 25px;
+        width:100px;
+        margin-top:10px;
+        margin-bottom: 10px;
+      }
+      ion-icon{
+        height: 55px;
+        width:55px;
+      }
+      label{
+        font-size: 11px;;
+      }
+      .Lab{
+        font-size: 15px;
+        margin: 0 auto;
+    
+      }
+      .Lab2{
+        font-size: 35px;
+        margin: 0 auto;
+    
+      }
+      .Lab3{
+        font-size: 20px;
+        color: white;
+      }
+      .newicon{
+        margin: 0 auto;
+        color: white;
+      }
+      .marginTop{
+        margin-top: 10px;
+      }
+      .sizeicon{
+        height: 35px;
+        width:35px;
+      }
+      .sizeicon1{
+        margin-left: 200px;
+        height: 35px;
+        width:35px;
+      }
+    }

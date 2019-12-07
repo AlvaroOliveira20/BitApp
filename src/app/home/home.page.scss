@@ -9,6 +9,9 @@
         height: 160px;
         
     }
+    ion-content {
+        --background: #339999 url('../../assets/background.png') no-repeat center center / cover !important;
+    }
     .margin{
         margin-top: 30px;
     }
@@ -24,10 +27,12 @@
         height: 50px;
         width:155px;
         margin-top:10px;
-        
+        --background: #339999 url('../../assets/button.png') no-repeat center center / cover !important;
+        color: #fff;
     }
     .margin4{
         position: fixed;
         bottom: 0px;
     }
+
 }

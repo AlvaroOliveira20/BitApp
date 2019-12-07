@@ -1,27 +1,34 @@
 :host{
   ion-content {
-    --background: var(--ion-color-primary)
-  }
+    --background: #339999 url('../../assets/background.png') no-repeat center center / cover !important;
+}
   .button{
     margin: 0 auto;
     height: 145px;
     width:170px;
     margin-top:10px;
+    --background: #339999 url('../../assets/button.png') no-repeat center center / cover !important;
+        color: #fff;
     
   }
   .button2{
+    --background: #339999 url('../../assets/content.png') no-repeat center center / cover !important;
+        color: #000;
+    border-radius: 5051px;
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
     margin: 0 auto;
-    height: 200px;
+    height: 300px;
     width: 300px;
-    margin-top:10px;
-    
+    margin-top:10px; 
   }
-  .null{
+  .Logout{
     margin: 0 auto;
-    height: 11px;
-    width:11px;
+    height: 25px;
+    width:100px;
     margin-top:10px;
-    
+    margin-bottom: 10px;
   }
   ion-icon{
     height: 55px;
@@ -50,5 +57,17 @@
   }
   .marginTop{
     margin-top: 10px;
+  }
+  .sizeicon{
+    height: 35px;
+    width:35px;
+  }
+  .sizeicon1{
+    margin-left: 200px;
+    height: 35px;
+    width:35px;
+  }
+  .sizeImg{
+    width:320px;
   }
 }

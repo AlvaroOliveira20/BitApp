@@ -1,6 +1,4 @@
 <ion-content>
-  <ion-button class = "null" routerDirection="forward" color="secondary" (click) = "logout()" expand = "block" >SAIR</ion-button>
-  <ion-button class = "null" routerDirection="forward" color="secondary" routerLink = "/cartao" expand = "block" >null</ion-button>
   <div style="display: flex; justify-content: center;">
     <div>
       <div class="marginTop" style="display: flex; justify-content: center;">
@@ -10,96 +8,125 @@
       <label class = "Lab3">Olá {{nome}}!</label>
     </div>
   </div>
-  <div style="display: flex; justify-content: center;">
-    <ion-button class = "button2" color="light">
-      <div>
-        <label class = "Lab">Fatura atual:</label>
-        <br>
-        <label class = "Lab2">R$0.00</label>
-        <br>
-        <label class = "Lab">Limite disponível: R${{limite}},00</label>
-      </div>
-    </ion-button>
+  <div>
+    <ion-slides >
+      <ion-slide>
+        <ion-button class = "button2" >
+          <div>
+          <ion-icon class = 'sizeicon' name="ios-card" ></ion-icon>
+          <br>
+          <label class = "Lab">Cartão de crédito</label>
+          <br>
+          <br>
+          <label class = "Lab">Fatura atual:</label>
+          <br>
+          <label class = "Lab2">R$0.00</label>
+          <br>
+          <br>
+          <label class = "Lab">Limite disponível: R${{limite}},00</label>
+          <br>
+          <label class = "Lab">Saldo da conta: R${{saldo}}</label>
+        </div>
+      </ion-button>
+    </ion-slide>
+    <ion-slide>
+      <ion-button class = "button2" >
+        <img class="sizeImg" src="assets/cardBlack.png">
+      </ion-button>
+    </ion-slide>
+      <ion-slide>
+        <ion-button class = "button2" >
+          <img class="sizeImg" src="assets/promo.png">
+        </ion-button>
+      </ion-slide>
+      <ion-slide>
+        <ion-button class = "button2" >
+          <img class="sizeImg" src="assets/promos.png">
+        </ion-button>
+      </ion-slide>
+    </ion-slides>
+    <ion-button class = "Logout" routerDirection="forward" color="secondary" (click) = "logout()" expand = "block" >SAIR</ion-button>
   </div>
-  <div style="display: flex; justify-content: center;">
-    <ion-button class = "button" color="danger">
-      <div>
-        <ion-icon name="md-person-add" ></ion-icon>
-        <br>
-        <label>Convidar amigos</label>
-      </div>
-    </ion-button>
-    <ion-button class = "button" color="danger">
-      <div>
-        <ion-icon name="ios-cash" ></ion-icon>
-        <br>
-        <label>Cobrar</label>
-      </div>
-    </ion-button>
-  </div>
-  <div style="display: flex; justify-content: center;">
-    <ion-button class = "button" color="danger">
-      <div>
-        <ion-icon name="md-cash" ></ion-icon>
-        <br>
-        <label>Depositar</label>
-      </div>
-    </ion-button>
-    <ion-button class = "button" color="danger">
-    <div>
-      <ion-icon name="ios-repeat" ></ion-icon>
-        <br>
-        <label>Transferir</label>
-      </div>
-    </ion-button>
-  </div>
-  <div style="display: flex; justify-content: center;">
-    <ion-button class = "button" color="danger">
-      <div>
-        <ion-icon name="ios-construct" ></ion-icon>
-        <br>
-        <label>Ajustar limite</label>
-      </div>
-    </ion-button>
-    <ion-button class = "button" color="danger">
-      <div>
-        <ion-icon name="md-help" ></ion-icon>
-        <br>
-        <label>Ajuda</label>
-      </div>
-    </ion-button>
-  </div>
-  <div style="display: flex; justify-content: center;">
-    <ion-button class = "button" color="danger">
-      <div>
-        <ion-icon name="md-barcode" ></ion-icon>
-        <br>
-        <label>Pagar</label>
-      </div>
-    </ion-button>
-    <ion-button class = "button" color="danger">
-    <div>
-      <ion-icon name="md-lock" ></ion-icon>
-        <br>
-        <label>Bloqueio de cartão</label>
-      </div>
-    </ion-button>
-  </div>
-  <div style="display: flex; justify-content: center;">
-    <ion-button class = "button" color="danger">
-      <div>
-        <ion-icon name="ios-card" ></ion-icon>
-        <br>
-        <label>Cartão virtual</label>
-      </div>
-    </ion-button>
-    <ion-button class = "button" color="danger">
-      <div>
-        <ion-icon name="md-albums" ></ion-icon>
-        <br>
-        <label>Mudar atalhos</label>
-      </div>
-    </ion-button>
-  </div>
-  <img class="marginTop" src="assets/cardBlack.png">
+  <ion-slides>
+    <ion-slide>
+      <ion-button routerLink="/convidar"class = "button" >
+        <div>
+          <ion-icon name="md-person-add" ></ion-icon>
+          <br>
+          <label>Convidar amigos</label>
+        </div>
+      </ion-button>
+      <ion-button routerLink = "/cobrar" class = "button">
+        <div>
+          <ion-icon name="ios-cash" ></ion-icon>
+          <br>
+          <label>Cobrar</label>
+        </div>
+      </ion-button>
+    </ion-slide>
+    <ion-slide>
+      <ion-button class = "button" >
+        <div>
+          <ion-icon name="md-cash" ></ion-icon>
+          <br>
+          <label>Depositar</label>
+        </div>
+      </ion-button>
+      <ion-button class = "button" routerLink = "/transferir">
+        <div>
+          <ion-icon name="ios-repeat" ></ion-icon>
+          <br>
+          <label>Transferir</label>
+        </div>
+      </ion-button>
+    </ion-slide>
+    <ion-slide>
+      <ion-button (click)= 'navToAjust()'  >
+        <div>
+          <ion-icon  name="ios-construct" ></ion-icon>
+          <br>
+          <label>Ajustar limite</label>
+        </div>
+      </ion-button>
+      <ion-button class = "button" >
+        <div>
+          <ion-icon name="md-help" ></ion-icon>
+          <br>
+          <label>Ajuda</label>
+        </div>
+      </ion-button>
+    </ion-slide>
+    <ion-slide>
+      <ion-button routerLink = "/pagar"class = "button" >
+        <div>
+          <ion-icon name="md-barcode" ></ion-icon>
+          <br>
+          <label>Pagar</label>
+        </div>
+      </ion-button>
+      <ion-button routerLink="/bloqueio" class = "button" >
+        <div>
+          <ion-icon name="md-lock" ></ion-icon>
+          <br>
+          <label>Bloqueio de cartão</label>
+        </div>
+      </ion-button>
+    </ion-slide>
+    <ion-slide>
+      <ion-button class = "button" >
+        <div>
+          <ion-icon name="ios-card" ></ion-icon>
+          <br>
+          <label>Cartão virtual</label>
+        </div>
+      </ion-button>
+      <ion-button class = "button" >
+        <div>
+          <ion-icon name="md-albums" ></ion-icon>
+          <br>
+          <label>Mudar atalhos</label>
+        </div>
+      </ion-button>
+    </ion-slide>
+  </ion-slides> 
 </ion-content>
